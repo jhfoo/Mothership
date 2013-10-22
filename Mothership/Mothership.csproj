@@ -43,6 +43,9 @@
     <Reference Include="Nancy.Hosting.Self">
       <HintPath>.\Nancy.Hosting.Self.dll</HintPath>
     </Reference>
+    <Reference Include="Nancy.ViewEngines.Razor">
+      <HintPath>.\Nancy.ViewEngines.Razor.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -52,10 +55,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomBootstrapper.cs" />
+    <Compile Include="CustomRootPathProvider.cs" />
     <Compile Include="HttpController.cs" />
     <Compile Include="Mothership.cs" />
     <Compile Include="MothershipManifest.cs" />
     <Compile Include="PluginInfo.cs" />
+    <Compile Include="PluginDisplayInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

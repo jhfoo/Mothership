@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Nancy;
+using MothershipShared;
 
 namespace MothershipLib
 {
@@ -11,9 +12,24 @@ namespace MothershipLib
         public HttpController()
         {
             Get["/"] = x => Mothership.Plugins.Length.ToString() + " plugins registered";
+            Get["/test"] = x =>
+            {
+                StatusItem item = new StatusItem();
+                item.Name = "Hello!";
+                return View["TestRazor.cshtml", item];
+            };
             Get["/mothership"] = x =>
             {
-                return "Welcome to Mothership!";
+                List<PluginDisplayInfo> list = new List<PluginDisplayInfo>();
+                foreach (PluginInfo info in Mothership.Plugins)
+                {
+                    PluginDisplayInfo DisplayInfo = new PluginDisplayInfo();
+                    DisplayInfo.Name = info.manifest.Name;
+                    DisplayInfo.Id = info.manifest.Id;
+                    DisplayInfo.RunningStatus = Mothership.Plugins[0].controller.GetStatus();
+                    list.Add(DisplayInfo);
+                }
+                return Response.AsJson(list);
             };
         }
     }

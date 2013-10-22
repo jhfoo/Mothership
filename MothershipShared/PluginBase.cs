@@ -19,9 +19,11 @@ namespace MothershipShared
 
         private RunStatusType _RunStatus = RunStatusType.STOPPED;
         private int LoopIntervalMSec = 1 * 1000;
+        private bool IsSleeping = false;
 
         private void SafeSleep()
         {
+            IsSleeping = true;
             for (int i = 0; i < LoopIntervalMSec; i += 500)
             {
                 if (_RunStatus != RunStatusType.STARTED)
@@ -29,6 +31,7 @@ namespace MothershipShared
                 else
                     Thread.Sleep(500);
             }
+            IsSleeping = false;
         }
 
         public void Start()
@@ -65,10 +68,21 @@ namespace MothershipShared
             }
         }
 
+        public StatusItem[] GetStatus()
+        {
+            List<StatusItem> list = new List<StatusItem>(OnGetStatus());
+            list.Add(new StatusItem("Info", "RunningStatus", IsSleeping ? "SLEEPING" : "RUNNING"));
+            return list.ToArray();
+        }
+
         public abstract void BeforeStart();
 
         public abstract void OnLoop();
 
         public abstract void BeforeShutdown();
+
+        public abstract StatusItem[] OnGetStatus();
+
+
     }
 }

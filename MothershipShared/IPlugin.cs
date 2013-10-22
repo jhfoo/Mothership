@@ -9,5 +9,6 @@ namespace MothershipShared
     {
         void Start();
         void Stop();
+        StatusItem[] GetStatus();
     }
 }

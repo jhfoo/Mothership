@@ -40,6 +40,11 @@ namespace MothershipShared
             MainThread.Start();
         }
 
+        public StatusItem[] GetStatus()
+        {
+            return plugin.GetStatus();
+        }
+
         public virtual void Stop()
         {
             try

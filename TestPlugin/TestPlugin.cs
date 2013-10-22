@@ -20,18 +20,27 @@ namespace TestPlugin
         public override void BeforeStart()
         {
         }
-        
+
         public override void OnLoop()
         {
-            count--;
+            //count--;
             if (count > 0)
             {
                 Log.Debug("I'm started!");
                 Log.Debug(AppDomain.CurrentDomain.FriendlyName);
+                System.Threading.Thread.Sleep(2 * 1000);
             }
 
             else
                 throw new Exception("There's an error and I gotta bail!");
+        }
+
+        public override StatusItem[] OnGetStatus()
+        {
+            List<StatusItem> list = new List<StatusItem>();
+            list.Add(new StatusItem("Info", "RunningTime", "10:20:30"));
+            list.Add(new StatusItem("Info", "Current Activity", "Sleeping"));
+            return list.ToArray();
         }
     }
 }
