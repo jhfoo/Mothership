@@ -6,11 +6,12 @@ using Nancy;
 
 namespace MothershipLib
 {
-    class HttpController : NancyModule
+    public class HttpController : NancyModule
     {
         public HttpController()
         {
-            Get["/"] = x =>
+            Get["/"] = x => Mothership.Plugins.Length.ToString() + " plugins registered";
+            Get["/mothership"] = x =>
             {
                 return "Welcome to Mothership!";
             };

@@ -10,3 +10,15 @@ E:\My Stuff\C#\GitHub\Mothership\Mothership\bin\Release\MothershipShared.dll
 E:\My Stuff\C#\GitHub\Mothership\Mothership\bin\Release\MothershipShared.pdb
 E:\My Stuff\C#\GitHub\Mothership\Mothership\bin\Release\Nancy.dll
 E:\My Stuff\C#\GitHub\Mothership\Mothership\bin\Release\Nancy.Hosting.Self.dll
+E:\personal\GitHub\Mothership\Mothership\bin\Release\MothershipLib.dll
+E:\personal\GitHub\Mothership\Mothership\bin\Release\MothershipLib.pdb
+E:\personal\GitHub\Mothership\Mothership\bin\Release\FooTools.dll
+E:\personal\GitHub\Mothership\Mothership\bin\Release\MothershipShared.dll
+E:\personal\GitHub\Mothership\Mothership\bin\Release\Nancy.dll
+E:\personal\GitHub\Mothership\Mothership\bin\Release\Nancy.Hosting.Self.dll
+E:\personal\GitHub\Mothership\Mothership\bin\Release\MySql.Data.dll
+E:\personal\GitHub\Mothership\Mothership\bin\Release\FooTools.pdb
+E:\personal\GitHub\Mothership\Mothership\bin\Release\MothershipShared.pdb
+E:\personal\GitHub\Mothership\Mothership\obj\Release\Mothership.csprojResolveAssemblyReference.cache
+E:\personal\GitHub\Mothership\Mothership\obj\Release\MothershipLib.dll
+E:\personal\GitHub\Mothership\Mothership\obj\Release\MothershipLib.pdb

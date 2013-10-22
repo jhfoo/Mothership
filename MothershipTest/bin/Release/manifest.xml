@@ -1,4 +1,8 @@
 <MothershipManifest>
+  <ServiceUrls>
+    <ServiceUrl>http://127.0.0.1:8088</ServiceUrl>
+    <ServiceUrlx>http://192.168.0.106:8088</ServiceUrlx>
+  </ServiceUrls>
   <PluginPaths>
     <path>./plugins</path>
   </PluginPaths>

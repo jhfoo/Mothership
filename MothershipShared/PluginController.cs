@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Reflection;
+using System.Threading;
 using FooTools;
 
 namespace MothershipShared
@@ -10,6 +11,7 @@ namespace MothershipShared
     public class PluginController : MarshalByRefObject
     {
         private IPlugin plugin = null;
+        private Thread MainThread = null;
 
         public void SetPlugin(string DllFilename, string ClassName)
         {
@@ -17,7 +19,8 @@ namespace MothershipShared
             this.plugin = (IPlugin)AppDomain.CurrentDomain.CreateInstanceAndUnwrap(asm.FullName, ClassName);
         }
 
-        public void Start() {
+        private void SafeStart()
+        {
             try
             {
                 plugin.Start();
@@ -28,7 +31,17 @@ namespace MothershipShared
             }
         }
 
-        public virtual void Stop() {
+        public void Start()
+        {
+            if (MainThread != null)
+                throw new Exception("Plugin already started");
+
+            MainThread = new Thread(new ThreadStart(SafeStart));
+            MainThread.Start();
+        }
+
+        public virtual void Stop()
+        {
             try
             {
                 plugin.Stop();
@@ -37,6 +50,8 @@ namespace MothershipShared
             {
                 Log.Warning(e);
             }
+
+            MainThread = null;
         }
     }
 }

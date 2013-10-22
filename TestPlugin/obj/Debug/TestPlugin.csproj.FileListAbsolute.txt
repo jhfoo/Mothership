@@ -1,0 +1,10 @@
+E:\personal\GitHub\Mothership\TestPlugin\bin\Debug\TestPlugin.dll
+E:\personal\GitHub\Mothership\TestPlugin\bin\Debug\TestPlugin.pdb
+E:\personal\GitHub\Mothership\TestPlugin\bin\Debug\FooTools.dll
+E:\personal\GitHub\Mothership\TestPlugin\bin\Debug\MothershipShared.dll
+E:\personal\GitHub\Mothership\TestPlugin\bin\Debug\MySql.Data.dll
+E:\personal\GitHub\Mothership\TestPlugin\bin\Debug\FooTools.pdb
+E:\personal\GitHub\Mothership\TestPlugin\bin\Debug\MothershipShared.pdb
+E:\personal\GitHub\Mothership\TestPlugin\obj\Debug\TestPlugin.csprojResolveAssemblyReference.cache
+E:\personal\GitHub\Mothership\TestPlugin\obj\Debug\TestPlugin.dll
+E:\personal\GitHub\Mothership\TestPlugin\obj\Debug\TestPlugin.pdb

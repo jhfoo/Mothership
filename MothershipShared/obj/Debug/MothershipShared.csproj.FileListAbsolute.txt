@@ -1,0 +1,7 @@
+E:\personal\GitHub\Mothership\MothershipShared\bin\Debug\MothershipShared.dll
+E:\personal\GitHub\Mothership\MothershipShared\bin\Debug\MothershipShared.pdb
+E:\personal\GitHub\Mothership\MothershipShared\bin\Debug\FooTools.dll
+E:\personal\GitHub\Mothership\MothershipShared\bin\Debug\MySql.Data.dll
+E:\personal\GitHub\Mothership\MothershipShared\bin\Debug\FooTools.pdb
+E:\personal\GitHub\Mothership\MothershipShared\obj\Debug\MothershipShared.dll
+E:\personal\GitHub\Mothership\MothershipShared\obj\Debug\MothershipShared.pdb

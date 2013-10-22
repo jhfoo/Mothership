@@ -6,7 +6,7 @@ using MothershipShared;
 
 namespace MothershipLib
 {
-    class PluginInfo
+    public class PluginInfo
     {
         public PluginController controller = null;
         public AppDomain domain = null;

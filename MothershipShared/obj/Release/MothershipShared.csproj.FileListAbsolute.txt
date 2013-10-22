@@ -6,3 +6,11 @@ E:\My Stuff\C#\GitHub\Mothership\MothershipShared\bin\Release\FooTools.dll
 E:\My Stuff\C#\GitHub\Mothership\MothershipShared\bin\Release\MySql.Data.dll
 E:\My Stuff\C#\GitHub\Mothership\MothershipShared\bin\Release\FooTools.pdb
 E:\My Stuff\C#\GitHub\Mothership\MothershipShared\obj\Release\MothershipShared.csprojResolveAssemblyReference.cache
+E:\personal\GitHub\Mothership\MothershipShared\bin\Release\MothershipShared.dll
+E:\personal\GitHub\Mothership\MothershipShared\bin\Release\MothershipShared.pdb
+E:\personal\GitHub\Mothership\MothershipShared\bin\Release\FooTools.dll
+E:\personal\GitHub\Mothership\MothershipShared\bin\Release\MySql.Data.dll
+E:\personal\GitHub\Mothership\MothershipShared\bin\Release\FooTools.pdb
+E:\personal\GitHub\Mothership\MothershipShared\obj\Release\MothershipShared.csprojResolveAssemblyReference.cache
+E:\personal\GitHub\Mothership\MothershipShared\obj\Release\MothershipShared.dll
+E:\personal\GitHub\Mothership\MothershipShared\obj\Release\MothershipShared.pdb

@@ -1,0 +1,12 @@
+E:\personal\GitHub\Mothership\Mothership\bin\Debug\MothershipLib.dll
+E:\personal\GitHub\Mothership\Mothership\bin\Debug\MothershipLib.pdb
+E:\personal\GitHub\Mothership\Mothership\bin\Debug\FooTools.dll
+E:\personal\GitHub\Mothership\Mothership\bin\Debug\MothershipShared.dll
+E:\personal\GitHub\Mothership\Mothership\bin\Debug\Nancy.dll
+E:\personal\GitHub\Mothership\Mothership\bin\Debug\Nancy.Hosting.Self.dll
+E:\personal\GitHub\Mothership\Mothership\bin\Debug\MySql.Data.dll
+E:\personal\GitHub\Mothership\Mothership\bin\Debug\FooTools.pdb
+E:\personal\GitHub\Mothership\Mothership\bin\Debug\MothershipShared.pdb
+E:\personal\GitHub\Mothership\Mothership\obj\Debug\Mothership.csprojResolveAssemblyReference.cache
+E:\personal\GitHub\Mothership\Mothership\obj\Debug\MothershipLib.dll
+E:\personal\GitHub\Mothership\Mothership\obj\Debug\MothershipLib.pdb

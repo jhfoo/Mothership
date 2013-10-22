@@ -7,7 +7,6 @@ using System.IO;
 using System.Timers;
 using FooTools;
 using MothershipShared;
-using Nancy;
 using Nancy.Hosting.Self;
 
 namespace MothershipLib
@@ -17,14 +16,21 @@ namespace MothershipLib
         private static List<PluginInfo> plugins = new List<PluginInfo>();
         private static int PluginStopTimeout = 3 * 1000;
         private static NancyHost HttpServer = null;
+        private static MothershipManifest MotherManifest = null;
 
         public static int LoadManifest(string filename)
         {
-            MothershipManifest manifest = new MothershipManifest(filename);
-
+            MotherManifest = new MothershipManifest(filename);
             return 0;
         }
 
+        public static PluginInfo[] Plugins
+        {
+            get
+            {
+                return plugins.ToArray();
+            }
+        }
 
         public static void Start()
         {
@@ -33,21 +39,28 @@ namespace MothershipLib
                 AppDomainSetup setup = new AppDomainSetup();
                 setup.ApplicationBase = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "/plugins/TestPlugin";
 
-                PluginManifest manifest = new PluginManifest(setup.ApplicationBase + "/manifest.xml");
-                Log.Normal(string.Format("Starting plugin '{0}' (id:{1})",manifest.Name, manifest.Id));
+                // copy Mothership's version of MothershipShared to plugin
+                File.Copy(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "/MothershipShared.dll",
+                    setup.ApplicationBase + "/MothershipShared.dll", true);
 
-                string DllFilename = setup.ApplicationBase + "/" + manifest.MainLibraryName;
+                // load up the plugin manifest
+                PluginManifest manifest = new PluginManifest(setup.ApplicationBase + "/manifest.xml");
+
+                // create an AppDomain for the plugin and load it in there
+                Log.Normal(string.Format("Starting plugin '{0}' (id:{1})",manifest.Name, manifest.Id));
                 AppDomain NewDomain = AppDomain.CreateDomain("NewDomain", null, setup);
                 PluginController controller = (PluginController)NewDomain.CreateInstanceFromAndUnwrap(setup.ApplicationBase + "/MothershipShared.dll", "MothershipShared.PluginController");
 
+                // launch the http server
+                HttpServer = new Nancy.Hosting.Self.NancyHost(MotherManifest.GetServiceUrlsAsUri());
+                HttpServer.Start();
+
+                // start the plugin!
+                string DllFilename = setup.ApplicationBase + "/" + manifest.MainLibraryName;
                 controller.SetPlugin(DllFilename, manifest.MainClassName);
                 controller.Start();
 
                 plugins.Add(new PluginInfo(controller, NewDomain, manifest));
-
-                HttpServer = new NancyHost(new Uri("http://127.0.0.1:8088/"));
-                HttpServer.Start();
-
             }
             catch (Exception e)
             {

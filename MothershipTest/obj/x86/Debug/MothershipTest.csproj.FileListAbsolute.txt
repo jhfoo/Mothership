@@ -9,3 +9,18 @@ E:\My Stuff\C#\GitHub\Mothership\MothershipTest\bin\Debug\FooTools.pdb
 E:\My Stuff\C#\GitHub\Mothership\MothershipTest\bin\Debug\MothershipLib.pdb
 E:\My Stuff\C#\GitHub\Mothership\MothershipTest\obj\x86\Debug\MothershipTest.exe
 E:\My Stuff\C#\GitHub\Mothership\MothershipTest\obj\x86\Debug\MothershipTest.pdb
+E:\personal\GitHub\Mothership\MothershipTest\bin\Debug\MothershipTest.exe.config
+E:\personal\GitHub\Mothership\MothershipTest\obj\x86\Debug\MothershipTest.exe
+E:\personal\GitHub\Mothership\MothershipTest\obj\x86\Debug\MothershipTest.pdb
+E:\personal\GitHub\Mothership\MothershipTest\bin\Debug\MothershipTest.exe
+E:\personal\GitHub\Mothership\MothershipTest\bin\Debug\MothershipTest.pdb
+E:\personal\GitHub\Mothership\MothershipTest\bin\Debug\FooTools.dll
+E:\personal\GitHub\Mothership\MothershipTest\bin\Debug\MothershipLib.dll
+E:\personal\GitHub\Mothership\MothershipTest\bin\Debug\MySql.Data.dll
+E:\personal\GitHub\Mothership\MothershipTest\bin\Debug\Nancy.dll
+E:\personal\GitHub\Mothership\MothershipTest\bin\Debug\Nancy.Hosting.Self.dll
+E:\personal\GitHub\Mothership\MothershipTest\bin\Debug\MothershipShared.dll
+E:\personal\GitHub\Mothership\MothershipTest\bin\Debug\FooTools.pdb
+E:\personal\GitHub\Mothership\MothershipTest\bin\Debug\MothershipLib.pdb
+E:\personal\GitHub\Mothership\MothershipTest\bin\Debug\MothershipShared.pdb
+E:\personal\GitHub\Mothership\MothershipTest\obj\x86\Debug\MothershipTest.csprojResolveAssemblyReference.cache

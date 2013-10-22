@@ -8,3 +8,13 @@ E:\My Stuff\C#\GitHub\Mothership\TestPlugin\obj\Release\TestPlugin.csprojResolve
 E:\My Stuff\C#\GitHub\Mothership\TestPlugin\bin\Release\FooTools.dll
 E:\My Stuff\C#\GitHub\Mothership\TestPlugin\bin\Release\MySql.Data.dll
 E:\My Stuff\C#\GitHub\Mothership\TestPlugin\bin\Release\FooTools.pdb
+E:\personal\GitHub\Mothership\TestPlugin\obj\Release\TestPlugin.csprojResolveAssemblyReference.cache
+E:\personal\GitHub\Mothership\TestPlugin\obj\Release\TestPlugin.dll
+E:\personal\GitHub\Mothership\TestPlugin\obj\Release\TestPlugin.pdb
+E:\personal\GitHub\Mothership\TestPlugin\bin\Release\TestPlugin.dll
+E:\personal\GitHub\Mothership\TestPlugin\bin\Release\TestPlugin.pdb
+E:\personal\GitHub\Mothership\TestPlugin\bin\Release\FooTools.dll
+E:\personal\GitHub\Mothership\TestPlugin\bin\Release\MothershipShared.dll
+E:\personal\GitHub\Mothership\TestPlugin\bin\Release\MySql.Data.dll
+E:\personal\GitHub\Mothership\TestPlugin\bin\Release\FooTools.pdb
+E:\personal\GitHub\Mothership\TestPlugin\bin\Release\MothershipShared.pdb
