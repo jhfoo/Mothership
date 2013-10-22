@@ -1,0 +1,11 @@
+E:\My Stuff\C#\GitHub\Mothership\MothershipTest\obj\x86\Debug\MothershipTest.csprojResolveAssemblyReference.cache
+E:\My Stuff\C#\GitHub\Mothership\MothershipTest\bin\Debug\MothershipTest.exe.config
+E:\My Stuff\C#\GitHub\Mothership\MothershipTest\bin\Debug\MothershipTest.exe
+E:\My Stuff\C#\GitHub\Mothership\MothershipTest\bin\Debug\MothershipTest.pdb
+E:\My Stuff\C#\GitHub\Mothership\MothershipTest\bin\Debug\FooTools.dll
+E:\My Stuff\C#\GitHub\Mothership\MothershipTest\bin\Debug\MothershipLib.dll
+E:\My Stuff\C#\GitHub\Mothership\MothershipTest\bin\Debug\MySql.Data.dll
+E:\My Stuff\C#\GitHub\Mothership\MothershipTest\bin\Debug\FooTools.pdb
+E:\My Stuff\C#\GitHub\Mothership\MothershipTest\bin\Debug\MothershipLib.pdb
+E:\My Stuff\C#\GitHub\Mothership\MothershipTest\obj\x86\Debug\MothershipTest.exe
+E:\My Stuff\C#\GitHub\Mothership\MothershipTest\obj\x86\Debug\MothershipTest.pdb

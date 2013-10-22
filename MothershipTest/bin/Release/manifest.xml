@@ -1,0 +1,5 @@
+<MothershipManifest>
+  <PluginPaths>
+    <path>./plugins</path>
+  </PluginPaths>
+</MothershipManifest>   

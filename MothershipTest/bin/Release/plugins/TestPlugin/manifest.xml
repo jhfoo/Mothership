@@ -1,0 +1,6 @@
+<PluginManifest>
+  <Id>PLUGIN_TEST</Id>
+  <MainClassName>TestPlugin.TestPlugin</MainClassName>
+  <MainLibraryName>TestPlugin.dll</MainLibraryName>
+  <Name>Mothership Test Plugin</Name>
+</PluginManifest>

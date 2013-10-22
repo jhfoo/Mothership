@@ -1,0 +1,10 @@
+E:\My Stuff\C#\GitHub\Mothership\TestPlugin\bin\Release\TestPlugin.dll
+E:\My Stuff\C#\GitHub\Mothership\TestPlugin\bin\Release\TestPlugin.pdb
+E:\My Stuff\C#\GitHub\Mothership\TestPlugin\obj\Release\TestPlugin.dll
+E:\My Stuff\C#\GitHub\Mothership\TestPlugin\obj\Release\TestPlugin.pdb
+E:\My Stuff\C#\GitHub\Mothership\TestPlugin\bin\Release\MothershipShared.dll
+E:\My Stuff\C#\GitHub\Mothership\TestPlugin\bin\Release\MothershipShared.pdb
+E:\My Stuff\C#\GitHub\Mothership\TestPlugin\obj\Release\TestPlugin.csprojResolveAssemblyReference.cache
+E:\My Stuff\C#\GitHub\Mothership\TestPlugin\bin\Release\FooTools.dll
+E:\My Stuff\C#\GitHub\Mothership\TestPlugin\bin\Release\MySql.Data.dll
+E:\My Stuff\C#\GitHub\Mothership\TestPlugin\bin\Release\FooTools.pdb
