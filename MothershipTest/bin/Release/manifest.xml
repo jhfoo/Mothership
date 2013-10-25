@@ -1,9 +1,10 @@
 <MothershipManifest>
   <ServiceUrls>
     <ServiceUrl>http://127.0.0.1:8088</ServiceUrl>
-    <ServiceUrl>http://192.168.0.10:8088</ServiceUrl>
+    <ServiceUrlx>http://192.168.0.10:8088</ServiceUrlx>
   </ServiceUrls>
   <PluginPaths>
-    <path>./plugins</path>
+    <pathx>./plugins</pathx>
+    <path>E:\personal\Thorsten\Mothership Plugins\Cynthia.Plugin.VoiceLogger\bin</path>
   </PluginPaths>
 </MothershipManifest>   

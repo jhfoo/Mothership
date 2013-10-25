@@ -11,6 +11,7 @@ namespace MothershipLib
     class MothershipManifest
     {
         public List<string> ServiceUrls = new List<string>();
+        public List<string> PluginPaths = new List<string>();
 
         public MothershipManifest(string filename)
         {
@@ -29,8 +30,12 @@ namespace MothershipLib
             foreach (XmlNode node in xml.SelectNodes("/MothershipManifest/PluginPaths/path"))
             {
                 if (!Directory.Exists(node.InnerText))
-                    Log.Normal("Plugin directory '" + node.InnerText + "' does not exist");
-                Log.Debug(node.InnerText);
+                    Log.Warning("Plugin directory '" + node.InnerText + "' does not exist");
+                else
+                {
+                    PluginPaths.Add(node.InnerText);
+                    Log.Normal("Registering plugin path: " + node.InnerText);
+                }
             }
         }
 

@@ -19,6 +19,8 @@ namespace TestPlugin
 
         public override void BeforeStart()
         {
+            Log.Debug("Initialising TestPlugin");
+            count = 3;
         }
 
         public override void OnLoop()
@@ -28,11 +30,11 @@ namespace TestPlugin
             {
                 Log.Debug("I'm started!");
                 Log.Debug(AppDomain.CurrentDomain.FriendlyName);
-                System.Threading.Thread.Sleep(2 * 1000);
+                System.Threading.Thread.Sleep(5 * 1000);
             }
-
             else
-                throw new Exception("There's an error and I gotta bail!");
+                _RunStatus = RunStatusType.STOPPING;
+                //throw new Exception("There's an error and I gotta bail!");
         }
 
         public override StatusItem[] OnGetStatus()

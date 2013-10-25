@@ -17,8 +17,9 @@ namespace MothershipShared
             STOPPING
         }
 
-        private RunStatusType _RunStatus = RunStatusType.STOPPED;
-        private int LoopIntervalMSec = 1 * 1000;
+        protected RunStatusType _RunStatus = RunStatusType.STOPPED;
+        protected int LoopIntervalMSec = 1 * 1000;
+
         private bool IsSleeping = false;
 
         private void SafeSleep()

@@ -7,10 +7,11 @@ using MothershipShared;
 namespace MothershipLib
 {
     [Serializable()]
-    class PluginDisplayInfo
+    public class PluginDisplayInfo
     {
         public string Name = "";
         public string Id = "";
+        public bool IsStarted = false;
         public StatusItem[] RunningStatus = new StatusItem[] { };
     }
 }

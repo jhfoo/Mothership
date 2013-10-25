@@ -12,29 +12,57 @@ namespace MothershipShared
     {
         private IPlugin plugin = null;
         private Thread MainThread = null;
+        private string DllFilename = "";
+        private string ClassName = "";
 
         public void SetPlugin(string DllFilename, string ClassName)
         {
+            this.DllFilename = DllFilename;
+            this.ClassName = ClassName;
+
+            InstantiatePlugin();
+        }
+
+        private void InstantiatePlugin()
+        {
             Assembly asm = Assembly.LoadFrom(DllFilename);
-            this.plugin = (IPlugin)AppDomain.CurrentDomain.CreateInstanceAndUnwrap(asm.FullName, ClassName);
+            plugin = (IPlugin)AppDomain.CurrentDomain.CreateInstanceAndUnwrap(asm.FullName, ClassName);
+        }
+
+        public bool IsRunning
+        {
+            get
+            {
+                return MainThread != null && MainThread.IsAlive;
+            }
         }
 
         private void SafeStart()
         {
             try
             {
+                Log.Normal("Starting plugin...");
                 plugin.Start();
             }
             catch (Exception e)
             {
                 Log.Error(e);
             }
+
+            MainThread = null;
+//            plugin = null;
+            Log.Normal("Plugin has stopped");
         }
 
         public void Start()
         {
+            Log.Normal("Attempting to start plugin ");
+
             if (MainThread != null)
                 throw new Exception("Plugin already started");
+
+            if (plugin == null)
+                InstantiatePlugin();
 
             MainThread = new Thread(new ThreadStart(SafeStart));
             MainThread.Start();

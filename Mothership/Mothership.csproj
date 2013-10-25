@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="CustomBootstrapper.cs" />
     <Compile Include="CustomRootPathProvider.cs" />
+    <Compile Include="SimpleResponse.cs" />
     <Compile Include="HttpController.cs" />
     <Compile Include="Mothership.cs" />
     <Compile Include="MothershipManifest.cs" />
