@@ -4,7 +4,8 @@
     <ServiceUrlx>http://192.168.0.10:8088</ServiceUrlx>
   </ServiceUrls>
   <PluginPaths>
-    <pathx>./plugins</pathx>
-    <path>E:\personal\Thorsten\Mothership Plugins\Cynthia.Plugin.VoiceLogger\bin</path>
+    <path>./plugins</path>
+    <path>E:\My Stuff\Thorsten\Mothership Plugins\Cynthia.Plugin.CdrParser\bin</path>
+	<path>E:\My Stuff\Thorsten\Mothership Plugins\Cynthia.Plugin.VoiceLoggerValidation\bin</path>
   </PluginPaths>
 </MothershipManifest>   

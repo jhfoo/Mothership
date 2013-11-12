@@ -11,12 +11,16 @@ namespace MothershipLib
         public PluginController controller = null;
         public AppDomain domain = null;
         public PluginManifest manifest = null;
+        public string path = "";
 
-        public PluginInfo(PluginController controller, AppDomain domain, PluginManifest manifest)
+        public PluginInfo() { }
+
+        public PluginInfo(PluginController controller, AppDomain domain, PluginManifest manifest, string path)
         {
             this.controller = controller;
             this.domain = domain;
             this.manifest = manifest;
+            this.path = path;
         }
     }
 }

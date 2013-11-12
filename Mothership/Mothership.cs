@@ -20,7 +20,9 @@ namespace MothershipLib
 
         public static int LoadManifest(string filename)
         {
-            MotherManifest = new MothershipManifest(filename);
+            // do not depend on working directory. always reference from the assembly location 
+            Log.Debug("Loading: " + Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "/" + filename);
+            MotherManifest = new MothershipManifest(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "/" + filename);
             return 0;
         }
 
@@ -45,14 +47,20 @@ namespace MothershipLib
         private static string[] GetPluginFolders()
         {
             List<string> list = new List<string>();
+            string AssemblyPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             foreach (string path in MotherManifest.PluginPaths)
             {
                 // validity check again
-                if (!Directory.Exists(path))
+                string NormalisedPath = path.StartsWith(".") ? Path.GetFullPath(AssemblyPath + "/" + path) : path;
+                Log.Debug("Looking for folder: " + NormalisedPath);
+                if (!Directory.Exists(NormalisedPath))
+                {
+                    Log.Warning("Plugin directory '" + NormalisedPath + "' does not exist");
                     continue;
+                }
 
                 // look for subfolders containing manifest.xml
-                foreach (string subfolder in Directory.GetDirectories(path))
+                foreach (string subfolder in Directory.GetDirectories(NormalisedPath))
                 {
                     if (File.Exists(subfolder + "/manifest.xml"))
                     {
@@ -65,11 +73,50 @@ namespace MothershipLib
             return list.ToArray();
         }
 
-        private static void CreatePlugin(string PluginFolder)
+        private static void StartPlugin(string PluginId)
+        {
+            if (!plugins.ContainsKey(PluginId))
+                throw new Exception("Plugin '" + PluginId + "' does not exist");
+
+            if (plugins[PluginId].domain != null)
+                throw new Exception("Plugin '" + PluginId + "' is already started");
+
+            PluginInfo info = plugins[PluginId];
+
+            // load up the plugin manifest
+            // this overrides the existing manifest created during registration
+            info.manifest = new PluginManifest(info.path + "/manifest.xml");
+
+            AppDomainSetup setup = new AppDomainSetup();
+            setup.ApplicationBase = info.path;
+
+            // copy Mothership's version of MothershipShared to plugin
+            File.Copy(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "/MothershipShared.dll",
+                info.path + "/MothershipShared.dll", true);
+
+            // remove MothershipShared.pdb file in the plugin folder
+            if (File.Exists(info.path + "/MothershipShared.pdb"))
+                File.Delete(info.path + "/MothershipShared.pdb");
+
+            // create an AppDomain and load the plugin in there
+            Log.Normal(string.Format("Starting plugin '{0}' (id:{1})", info.manifest.Name, info.manifest.Id));
+            info.domain = AppDomain.CreateDomain(info.manifest.Id, null, setup);
+            info.controller = (PluginController)info.domain.CreateInstanceFromAndUnwrap(
+                info.path + "/MothershipShared.dll", "MothershipShared.PluginController");
+
+            // start the plugin!
+            string DllFilename = setup.ApplicationBase + "/" + info.manifest.MainLibraryName;
+            info.controller.SetPlugin(DllFilename, info.manifest.MainClassName);
+            info.controller.Start();
+
+        }
+
+        private static void RegisterPlugin(string PluginFolder)
         {
             try
             {
                 // load up the plugin manifest
+                Log.Debug("Registering plugin at: " + PluginFolder); 
                 PluginManifest manifest = new PluginManifest(PluginFolder + "/manifest.xml");
 
                 // make sure the plugin id is unique
@@ -80,26 +127,12 @@ namespace MothershipLib
                     return;
                 }
 
-                AppDomainSetup setup = new AppDomainSetup();
-                setup.ApplicationBase = PluginFolder;
+                plugins[manifest.Id] = new PluginInfo();
+                plugins[manifest.Id].path = PluginFolder;
+                plugins[manifest.Id].manifest = manifest;
 
-                // copy Mothership's version of MothershipShared to plugin
-                File.Copy(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "/MothershipShared.dll",
-                    PluginFolder + "/MothershipShared.dll", true);
-
-
-                // create an AppDomain for the plugin and load it in there
-                Log.Normal(string.Format("Starting plugin '{0}' (id:{1})", manifest.Name, manifest.Id));
-                AppDomain NewDomain = AppDomain.CreateDomain(manifest.Id, null, setup);
-                PluginController controller = (PluginController)NewDomain.CreateInstanceFromAndUnwrap(
-                    PluginFolder + "/MothershipShared.dll", "MothershipShared.PluginController");
-
-                // start the plugin!
-                string DllFilename = setup.ApplicationBase + "/" + manifest.MainLibraryName;
-                controller.SetPlugin(DllFilename, manifest.MainClassName);
-                controller.Start();
-
-                plugins[manifest.Id] = new PluginInfo(controller, NewDomain, manifest);
+                if (manifest.IsAutoStart)
+                    StartPlugin(manifest.Id);
             }
             catch (Exception e)
             {
@@ -113,7 +146,7 @@ namespace MothershipLib
             {
                 foreach (string path in GetPluginFolders())
                 {
-                    CreatePlugin(path);
+                    RegisterPlugin(path);
                 }
 
                 // launch the http server

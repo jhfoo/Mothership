@@ -15,8 +15,8 @@ namespace MothershipLib
 
         public MothershipManifest(string filename)
         {
-            if (!File.Exists("manifest.xml"))
-                throw new Exception("File not found: " + Path.GetFullPath("manifest.xml"));
+            if (!File.Exists(filename))
+                throw new Exception("File not found: " + Path.GetFullPath(filename));
 
             XmlDocument xml = new XmlDocument();
             xml.Load(filename);
@@ -29,13 +29,7 @@ namespace MothershipLib
 
             foreach (XmlNode node in xml.SelectNodes("/MothershipManifest/PluginPaths/path"))
             {
-                if (!Directory.Exists(node.InnerText))
-                    Log.Warning("Plugin directory '" + node.InnerText + "' does not exist");
-                else
-                {
-                    PluginPaths.Add(node.InnerText);
-                    Log.Normal("Registering plugin path: " + node.InnerText);
-                }
+                PluginPaths.Add(node.InnerText);
             }
         }
 

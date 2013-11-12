@@ -37,7 +37,7 @@ namespace MothershipLib
                         return Response.AsJson(new SimpleResponse(SimpleResponse.ResultType.ERROR, "Invalid plugin id"));
 
                     if (info.controller.IsRunning)
-                    return Response.AsJson(new SimpleResponse(SimpleResponse.ResultType.ERROR, "Plugin already started"));
+                        return Response.AsJson(new SimpleResponse(SimpleResponse.ResultType.ERROR, "Plugin already started"));
 
                     info.controller.Start();
                     return Response.AsJson(new SimpleResponse(SimpleResponse.ResultType.OK));
@@ -71,7 +71,10 @@ namespace MothershipLib
             };
             Get["/mothership"] = x =>
             {
-                return Response.AsJson(GetPluginDisplayInfo());
+                if (Request.Query.type == "xml")
+                    return Response.AsXml(GetPluginDisplayInfo());
+                else
+                    return Response.AsJson(GetPluginDisplayInfo());
             };
         }
 

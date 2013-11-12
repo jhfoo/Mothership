@@ -77,6 +77,7 @@ namespace MothershipShared
         {
             try
             {
+                Log.Debug("Stopping plugin");
                 plugin.Stop();
             }
             catch (Exception e)

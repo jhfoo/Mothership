@@ -58,7 +58,7 @@
 					</thead>
 					<tbody id="RowBody">
 						<tr id="RowTemplate">
-							<td>1</td>
+							<td>{RowIndex}</td>
 							<td>{Name}</td>
 							<td>{Id}</td>
 							<td>{Status}</td>
@@ -92,9 +92,11 @@
 		RowTemplate = $('#RowTemplate').html();
 		$('#RowTemplate').remove();
 
-		$.get('mothership', function(data) {
+		$.get('/mothership', function(data) {
+			var index = 0;
 			$.each(data, function(index, value) {
 				var NewRow = RowTemplate;
+				NewRow = NewRow.replace("{RowIndex}",++index);
 				NewRow = NewRow.replace("{Name}",value.Name)
 					.replace('{Status}', value.IsStarted ? 'RUNNING' : 'STOPPED');
 				NewRow = ReplaceAll(NewRow, '{Id}', value.Id);
@@ -107,12 +109,21 @@
 			});
 
 			// reload the page every x seconds
-			setTimeout('location.href="/"', 5 * 1000);
+			//setTimeout('location.href="/"', 5 * 1000);
 		}, 'json');
 	});
 
 	function StartPlugin(PluginId) {
 		$.get('/cmd/StartPlugin/' + PluginId, function(data) {
+			if (data.result != 'OK') {
+				alert(data.message);
+			} else
+				location.href = "/";
+		},'json');
+	}
+
+	function StopPlugin(PluginId) {
+		$.get('/cmd/StopPlugin/' + PluginId, function(data) {
 			if (data.result != 'OK') {
 				alert(data.message);
 			} else
